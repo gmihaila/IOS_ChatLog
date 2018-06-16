@@ -40,9 +40,8 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         // if there are no messages
         if messages.count == 0  {
 //            messages.append(newMessage(user: "customer", text: "", image: UIImage(named: "state-farm-logo")))
-            messages.append(newMessage(user: "agent", text: "Hey there!\nI am your State Farm Agent.", image: nil))
-            messages.append(newMessage(user: "agent", text: "I am here to assist you with your claim.", image: nil))
-            messages.append(newMessage(user: "agent", text: "You can describe your claim here, and you can also send pictures here of any documents that might help wiht the claim.", image: nil))
+            messages.append(newMessage(user: "agent", text: "Hello! I'm your chatbot", image: nil))
+            
         }
         
         

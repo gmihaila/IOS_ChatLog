@@ -53,7 +53,7 @@ class ChatMessageCell: UICollectionViewCell {
     // profile image
     let profileImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile_logo")      // get form Assets
+//        imageView.image = UIImage(named: "")      // get form Assets
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
