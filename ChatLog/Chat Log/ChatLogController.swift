@@ -291,11 +291,10 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     @objc func handleHome(){
-        self.dismiss(animated: false, completion: nil)
-        
-//        let viewController:ViewController = ViewController()
-//        // send any variables back
-//        present(viewController, animated: true, completion: nil)
+        // go to initial view controller
+        let initialViewController = UIStoryboard(name: "Main", bundle:nil).instantiateInitialViewController()
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        appDelegate.window?.rootViewController = initialViewController
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
