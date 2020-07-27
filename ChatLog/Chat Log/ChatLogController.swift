@@ -45,8 +45,8 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         }
         
         
-        collectionView?.contentInset = UIEdgeInsetsMake(58, 0, 58, 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 50, 0)
+        collectionView?.contentInset = UIEdgeInsets.init(top: 58, left: 0, bottom: 58, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets.init(top: 50, left: 0, bottom: 50, right: 0)
         
        collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
@@ -56,9 +56,9 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     func setupKeyboardObeservers(){
         // to bring it u[
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         // to bring it back down
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // avoids memory leak
@@ -73,7 +73,7 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     // get keyboard size and bring it up
     @objc func handleKeyboardWillShow(notification: NSNotification) {
-        let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         // move input area up
         containerViewBottomAnchor?.constant = -keyboardFrame!.height
     }
@@ -297,7 +297,10 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         appDelegate.window?.rootViewController = initialViewController
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
         print("We selected an image")
     }
@@ -306,4 +309,9 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

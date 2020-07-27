@@ -1,8 +1,39 @@
-## Chat Log
+# IOS Chat Log Sample App
 
-Simple app for a chat layout.
-No Database SYNC!
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![Ask Me Anything !](https://img.shields.io/badge/Updated-July,2020-1abc9c.svg)](https://GitHub.com/Naereen/ama)
+
+This is a sample app built in IOS as a template for a chatbot conversation app.
+
+Code has been compiled to **Swift 5**.
+
+Code compatible with **Xcode 11.0** and **IOS 13.2** for both **IPhone** and **IPad**.
 
 
+## Welcome Screen
 
-Thank you for using my code! George M.
+Since it's only a sample app, its design is purely functional.
+It contains an upload image on the left side.
+
+![](https://raw.githubusercontent.com/gmihaila/IOS_Speech_Recognition/master/screen_shot/welcome_screen.png)
+
+
+## Using the app
+
+After pressing **Start Listening!** the IOS Speech Engine starts to listen to any audio and makes calls to the speech to text API and output text to user.
+
+It can even recognize name entity
+
+![](https://raw.githubusercontent.com/gmihaila/IOS_Speech_Recognition/master/screen_shot/working.png)
+
+## Start Chatting
+
+The **Talk** button will consider all text present on the screen and call the IOS Speech Engine to translate the text into speech using the Siri API.
+
+## Open Project
+
+This is an open project free for everyone to clone and use.
+
+I used this project as a demonstration of the accuracy of the **IOS Speech Engine**. 
+
+As a personal conclusion it is very easy to use it performs very well when given clean audio input.
